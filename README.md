@@ -1,4 +1,4 @@
 Simple Music Player
 --------------------------
-Can only play wav files
+Can only play wav files.
 --------------------------
