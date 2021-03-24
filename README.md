@@ -4,4 +4,4 @@ SoundPlayer Class
 --------------------------
 Can only play wav files.
 --------------------------
-"music.png"
+![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
