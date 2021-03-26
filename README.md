@@ -1,4 +1,4 @@
-Simple Music Player
+Basic Music Player
 --------------------------
 SoundPlayer Class
 --------------------------
