@@ -11,16 +11,31 @@ namespace Music
             InitializeComponent();
         }
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+        OpenFileDialog file = new OpenFileDialog();
 
         private void Play_Click(object sender, System.EventArgs e)
         {
-            player.SoundLocation = textBox1.Text;
+            player.SoundLocation = Music.GetItemText(Music.SelectedItem);
             player.Play();
         }
 
         private void Stop_Click(object sender, System.EventArgs e)
         {
             player.Stop();
+        }
+
+        private void AddMusic_Click(object sender, EventArgs e)
+        {
+            file.Filter = "Media File(*.wav)|*.wav";
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                Music.Items.Add(file.FileName);
+            }
+        }
+
+        private void DeleteMusic_Click(object sender, EventArgs e)
+        {
+            Music.Items.Clear();
         }
     }
 }
