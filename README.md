@@ -7,9 +7,9 @@ SoundPlayer Class
 -------------------------------------------------------
 # # The flaws of the application #
 
-Can only play wav files.
+* Can only play wav files.
 -------------------------------------------------------
-Sound Player method does not support music pause.
+* Sound Player method does not support music pause.
 -------------------------------------------------------
-The exact location of the music appears in the Playlist.
+* The exact location of the music appears in the Playlist.
 -------------------------------------------------------
