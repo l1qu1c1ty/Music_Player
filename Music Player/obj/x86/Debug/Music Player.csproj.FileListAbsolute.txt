@@ -14,3 +14,11 @@ C:\Users\melih\Desktop\MusicPlayer\Music Player\obj\x86\Debug\Music Player.cspro
 C:\Users\melih\Desktop\MusicPlayer\Music Player\obj\x86\Debug\Music.Form1.resources
 C:\Users\melih\Desktop\MusicPlayer\Music Player\obj\x86\Debug\Music.Properties.Resources.resources
 C:\Users\melih\Desktop\MusicPlayer\Music Player\obj\x86\Debug\Music Player.csproj.GenerateResource.Cache
+C:\Users\melih\Desktop\Dokumanlar\MusicPlayer\Music Player\obj\x86\Debug\music.exe
+C:\Users\melih\Desktop\Dokumanlar\MusicPlayer\Music Player\obj\x86\Debug\music.pdb
+C:\Users\melih\Desktop\Dokumanlar\MusicPlayer\Music Player\obj\x86\Debug\Music Player.csprojResolveAssemblyReference.cache
+C:\Users\melih\Desktop\Dokumanlar\MusicPlayer\Music Player\obj\x86\Debug\Music.Form1.resources
+C:\Users\melih\Desktop\Dokumanlar\MusicPlayer\Music Player\obj\x86\Debug\Music.Properties.Resources.resources
+C:\Users\melih\Desktop\Dokumanlar\MusicPlayer\Music Player\obj\x86\Debug\Music Player.csproj.GenerateResource.Cache
+C:\Users\melih\Desktop\Dokumanlar\MusicPlayer\Music Player\bin\Debug\music.exe
+C:\Users\melih\Desktop\Dokumanlar\MusicPlayer\Music Player\bin\Debug\music.pdb

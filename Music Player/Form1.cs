@@ -10,6 +10,7 @@ namespace Music
         {
             InitializeComponent();
         }
+
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();
         OpenFileDialog file = new OpenFileDialog();
 
@@ -17,11 +18,13 @@ namespace Music
         {
             player.SoundLocation = Music.GetItemText(Music.SelectedItem);
             player.Play();
+            this.Text = Music.GetItemText(Music.SelectedItem);
         }
 
         private void Stop_Click(object sender, System.EventArgs e)
         {
             player.Stop();
+            this.Text = "Music Player";
         }
 
         private void AddMusic_Click(object sender, EventArgs e)
