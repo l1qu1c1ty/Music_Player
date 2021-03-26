@@ -5,7 +5,7 @@ SoundPlayer Class
 ![Alt text](https://github.com/melihcan1376/MusicPlayer/blob/main/music.png?raw=true "Optional Title")
 -------------------------------------------------------------------------------------------------------
 -------------------------------------------------------
-# # The flaws of the application
+# The flaws of the application
 
 * Can only play wav files.
 
