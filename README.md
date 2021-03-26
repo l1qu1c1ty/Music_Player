@@ -11,5 +11,5 @@ Can only play wav files.
 -------------------------------------------------------
 Sound Player method does not support music pause.
 -------------------------------------------------------
-The exact location of the music appears in the Playlist
+The exact location of the music appears in the Playlist.
 -------------------------------------------------------
