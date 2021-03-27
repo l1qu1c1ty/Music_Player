@@ -1,6 +1,6 @@
 # Basic Music Player
 
-# SoundPlayer Class
+SoundPlayer Class
 --------------------------
 ![Alt text](https://github.com/melihcan1376/MusicPlayer/blob/main/music.png?raw=true "Optional Title")
 -------------------------------------------------------------------------------------------------------
