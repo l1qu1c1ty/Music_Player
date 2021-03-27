@@ -42,7 +42,7 @@
             this.Stop.BackColor = System.Drawing.Color.Transparent;
             this.Stop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Stop.Image = ((System.Drawing.Image)(resources.GetObject("Stop.Image")));
-            this.Stop.Location = new System.Drawing.Point(372, 256);
+            this.Stop.Location = new System.Drawing.Point(369, 256);
             this.Stop.Name = "Stop";
             this.Stop.Size = new System.Drawing.Size(91, 87);
             this.Stop.TabIndex = 2;
@@ -54,7 +54,7 @@
             this.Play.BackColor = System.Drawing.Color.Transparent;
             this.Play.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Play.Image = ((System.Drawing.Image)(resources.GetObject("Play.Image")));
-            this.Play.Location = new System.Drawing.Point(267, 256);
+            this.Play.Location = new System.Drawing.Point(261, 256);
             this.Play.Name = "Play";
             this.Play.Size = new System.Drawing.Size(88, 87);
             this.Play.TabIndex = 6;
@@ -70,6 +70,7 @@
             this.Music.Location = new System.Drawing.Point(12, 25);
             this.Music.Name = "Music";
             this.Music.Size = new System.Drawing.Size(448, 213);
+            this.Music.Sorted = true;
             this.Music.TabIndex = 14;
             // 
             // AddMusic
@@ -89,7 +90,7 @@
             this.DeleteMusic.BackColor = System.Drawing.Color.Transparent;
             this.DeleteMusic.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DeleteMusic.Image = ((System.Drawing.Image)(resources.GetObject("DeleteMusic.Image")));
-            this.DeleteMusic.Location = new System.Drawing.Point(118, 256);
+            this.DeleteMusic.Location = new System.Drawing.Point(119, 256);
             this.DeleteMusic.Name = "DeleteMusic";
             this.DeleteMusic.Size = new System.Drawing.Size(89, 87);
             this.DeleteMusic.TabIndex = 16;
@@ -114,7 +115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(475, 361);
+            this.ClientSize = new System.Drawing.Size(472, 355);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DeleteMusic);
             this.Controls.Add(this.AddMusic);

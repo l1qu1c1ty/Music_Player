@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Music
 {
@@ -30,15 +31,27 @@ namespace Music
         private void AddMusic_Click(object sender, EventArgs e)
         {
             file.Filter = "Media File(*.wav)|*.wav";
-            if (file.ShowDialog() == DialogResult.OK)
+            file.Multiselect = true;
+            if (file.ShowDialog(this) == DialogResult.OK)
             {
-                Music.Items.Add(file.FileName);
+                foreach (string files in file.FileNames)
+                {
+                    //Fill in location selected
+                    Music.Items.Add(files);
+                }
             }
         }
 
         private void DeleteMusic_Click(object sender, EventArgs e)
         {
-            Music.Items.Clear();
+            ListBox.SelectedObjectCollection selectedItems = new ListBox.SelectedObjectCollection(Music);
+            selectedItems = Music.SelectedItems;
+
+            if (Music.SelectedIndex != -1)
+            {
+                for (int i = selectedItems.Count - 1; i >= 0; i--)
+                    Music.Items.Remove(selectedItems[i]);
+            }
         }
     }
 }
