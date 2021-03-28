@@ -41,6 +41,7 @@
             // 
             this.Stop.BackColor = System.Drawing.Color.Transparent;
             this.Stop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Stop.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Stop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Stop.Image = ((System.Drawing.Image)(resources.GetObject("Stop.Image")));
             this.Stop.Location = new System.Drawing.Point(346, 256);
@@ -118,10 +119,12 @@
             // 
             // Form1
             // 
+            this.AcceptButton = this.Play;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CancelButton = this.Stop;
             this.ClientSize = new System.Drawing.Size(471, 355);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DeleteMusic);
