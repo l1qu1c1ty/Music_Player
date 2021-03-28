@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.Linq;
@@ -17,8 +18,14 @@ namespace Music
 
         private void Play_Click(object sender, System.EventArgs e)
         {
-            player.SoundLocation = Music.GetItemText(Music.SelectedItem);
-            player.Play();
+            try
+            {
+                player.SoundLocation = Music.GetItemText(Music.SelectedItem);
+                player.Play();
+            }
+            catch (FileNotFoundException) {
+                MessageBox.Show("Müzik bu konumda bulunamadı.");
+            }
             this.Text = Music.GetItemText(Music.SelectedItem);
         }
 
@@ -50,6 +57,24 @@ namespace Music
             {
                 for (int i = selectedItems.Count - 1; i >= 0; i--)
                     Music.Items.Remove(selectedItems[i]);
+            }
+        }
+
+        void Music_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = this.Music.IndexFromPoint(e.Location);
+            if (index != System.Windows.Forms.ListBox.NoMatches)
+            {
+                try
+                {
+                    player.SoundLocation = Music.GetItemText(Music.SelectedItem);
+                    player.Play();
+                }
+                catch (FileNotFoundException)
+                {
+                    MessageBox.Show("Müzik bu konumda bulunamadı.");
+                }
+                this.Text = Music.GetItemText(Music.SelectedItem);
             }
         }
     }

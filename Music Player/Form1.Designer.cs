@@ -67,7 +67,7 @@
             // Music
             // 
             this.Music.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Music.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Music.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Music.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.Music.FormattingEnabled = true;
             this.Music.ItemHeight = 19;
@@ -77,6 +77,7 @@
             this.Music.Size = new System.Drawing.Size(448, 213);
             this.Music.Sorted = true;
             this.Music.TabIndex = 1;
+            this.Music.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Music_MouseDoubleClick);
             // 
             // AddMusic
             // 
