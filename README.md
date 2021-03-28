@@ -13,9 +13,8 @@ SoundPlayer Class
 
 * Müziğin tam konumu Çalma Listesinde görünür.
 ----------------------------------------------------------
-----------------------------------------------------------
           English
----------------------------------------------------------
+          
 # The flaws of the application
 
 * Can only play wav files.
