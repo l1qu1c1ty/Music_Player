@@ -12,3 +12,14 @@ SoundPlayer Class
 * Sound Player method does not support music pause.
 
 * The exact location of the music appears in the Playlist.
+
+----------------------------------------------------------
+# Turkish
+
+# Uygulamanın kusurları
+
+* Yalnızca wav dosyalarını oynatabilir.
+
+* Sound Player yöntemi müziğin duraklatılmasını desteklemez.
+
+* Müziğin tam konumu Çalma Listesinde görünür.
