@@ -36,7 +36,6 @@ namespace Music
             {
                 foreach (string files in file.FileNames)
                 {
-                    //Fill in location selected
                     Music.Items.Add(files);
                 }
             }
