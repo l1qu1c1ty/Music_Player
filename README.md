@@ -2,7 +2,7 @@
 
 SoundPlayer Class
 --------------------------
-![Alt text](https://github.com/melihcan1376/MusicPlayer/blob/main/music.png?raw=true "Optional Title")
+![Alt text](https://github.com/melihcan1376/MusicPlayer/blob/main/music.png?raw=true "Music Player")
 -------------------------------------------------------------------------------------------------------
 -------------------------------------------------------
 # Uygulamanın kusurları
