@@ -1,6 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
 
@@ -13,51 +18,41 @@ namespace Music
             InitializeComponent();
         }
 
-        System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+        WMPLib.WindowsMediaPlayer muzikcalar = new WMPLib.WindowsMediaPlayer();
         OpenFileDialog file = new OpenFileDialog();
-
-        private void Play_Click(object sender, System.EventArgs e)
-        {
-            try
-            {
-                player.SoundLocation = Music.GetItemText(Music.SelectedItem);
-                player.Play();
-            }
-            catch (FileNotFoundException) {
-                MessageBox.Show("Müzik bu konumda bulunamadı.");
-            }
-            this.Text = Music.GetItemText(Music.SelectedItem);
-        }
-
-        private void Stop_Click(object sender, System.EventArgs e)
-        {
-            player.Stop();
-            this.Text = "Music Player";
-        }
+        List<string> OynatmaListesi = new List<string>();
 
         private void AddMusic_Click(object sender, EventArgs e)
         {
-            file.Filter = "Media File(*.wav)|*.wav";
+            file.Filter = "Media File(*.mpg,*.dat,*.avi,*.wmv,*.wav,*.mp3)|*.wav;*.mp3;*.mpg;*.dat;*.avi;*.wmv";
             file.Multiselect = true;
+            file.InitialDirectory = Application.StartupPath;
+            file.Title = "Dosya Seç";
+            
             if (file.ShowDialog(this) == DialogResult.OK)
             {
-                foreach (string files in file.FileNames)
+                for (int i = 0; i < file.FileNames.Count(); i++)
                 {
-                    Music.Items.Add(files);
+                    Music.Items.Add(file.SafeFileNames[i]);
+                    OynatmaListesi.Add(file.FileNames[i]);
                 }
+                    Play.Enabled = true;
+                    Stop.Enabled = true;
+                    DeleteMusic.Enabled = true;
+                    NewPlay.Enabled = true;
+                
             }
         }
 
         private void DeleteMusic_Click(object sender, EventArgs e)
         {
-            ListBox.SelectedObjectCollection selectedItems = new ListBox.SelectedObjectCollection(Music);
-            selectedItems = Music.SelectedItems;
-
-            if (Music.SelectedIndex != -1)
-            {
-                for (int i = selectedItems.Count - 1; i >= 0; i--)
-                    Music.Items.Remove(selectedItems[i]);
-            }
+            Music.Items.Clear();
+            OynatmaListesi.Clear();
+            Play.Enabled = false;
+            Stop.Enabled = false;
+            DeleteMusic.Enabled = false;
+            NewPlay.Enabled = false;
+            muzikcalar.controls.stop();
         }
 
         void Music_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -67,8 +62,9 @@ namespace Music
             {
                 try
                 {
-                    player.SoundLocation = Music.GetItemText(Music.SelectedItem);
-                    player.Play();
+                    muzikcalar.URL = OynatmaListesi[Music.SelectedIndex].ToString();
+                    muzikcalar.controls.play();
+                    Play.Image = System.Drawing.Image.FromFile("../../source/pause.png");
                 }
                 catch (FileNotFoundException)
                 {
@@ -76,6 +72,68 @@ namespace Music
                 }
                 this.Text = Music.GetItemText(Music.SelectedItem);
             }
+        }
+        
+        
+        private void Play_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(muzikcalar.URL))
+                {
+                    if (muzikcalar.playState == WMPLib.WMPPlayState.wmppsPaused)
+                    {
+                        muzikcalar.controls.play();
+                        Play.Image = System.Drawing.Image.FromFile("../../source/pause.png");
+                    }
+                    else
+                    {
+                        muzikcalar.controls.pause();
+                    }
+                }
+            }
+
+            catch
+            {
+                MessageBox.Show("Çalınacak Müzik Bulunamadı.");
+            }
+        }
+
+        private void Stop_Click(object sender, EventArgs e)
+        {
+            muzikcalar.controls.stop();
+        }
+
+        private void Music_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                Music.SelectedIndex = Music.IndexFromPoint(e.X, e.Y);
+            else { }
+        }
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int i = Music.SelectedIndex;
+            Music.Items.RemoveAt(i);
+            OynatmaListesi.RemoveAt(i);
+            Music.Refresh();
+            muzikcalar.controls.stop();
+            MessageBox.Show("Liste Değişti. Müziği yeniden başlatın.");
+        }
+
+        private void NewPlay_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                muzikcalar.URL = OynatmaListesi[Music.SelectedIndex].ToString();
+                muzikcalar.controls.play();
+            }
+
+            catch
+            {
+                MessageBox.Show("Çalınacak Müzik Bulunamadı.");
+            }
+            
         }
     }
 }
