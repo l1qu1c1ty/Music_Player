@@ -40,8 +40,7 @@ namespace Music
                     Stop.Enabled = true;
                     DeleteMusic.Enabled = true;
                     NewPlay.Enabled = true;
-                
-            }
+                }
         }
 
         private void DeleteMusic_Click(object sender, EventArgs e)
@@ -64,13 +63,13 @@ namespace Music
                 {
                     muzikcalar.URL = OynatmaListesi[Music.SelectedIndex].ToString();
                     muzikcalar.controls.play();
-                    Play.Image = System.Drawing.Image.FromFile("../../source/pause.png");
+                    this.Text = Music.GetItemText(Music.SelectedItem);
                 }
+                
                 catch (FileNotFoundException)
                 {
                     MessageBox.Show("Müzik bu konumda bulunamadı.");
-                }
-                this.Text = Music.GetItemText(Music.SelectedItem);
+                }          
             }
         }
         
@@ -84,8 +83,9 @@ namespace Music
                     if (muzikcalar.playState == WMPLib.WMPPlayState.wmppsPaused)
                     {
                         muzikcalar.controls.play();
-                        Play.Image = System.Drawing.Image.FromFile("../../source/pause.png");
+                        this.Text = Music.GetItemText(Music.SelectedItem);
                     }
+                    
                     else
                     {
                         muzikcalar.controls.pause();
@@ -127,6 +127,7 @@ namespace Music
             {
                 muzikcalar.URL = OynatmaListesi[Music.SelectedIndex].ToString();
                 muzikcalar.controls.play();
+                this.Text = Music.GetItemText(Music.SelectedItem);
             }
 
             catch
