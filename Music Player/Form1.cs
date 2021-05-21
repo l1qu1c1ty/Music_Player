@@ -113,12 +113,24 @@ namespace Music
 
         private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int i = Music.SelectedIndex;
-            Music.Items.RemoveAt(i);
-            OynatmaListesi.RemoveAt(i);
-            Music.Refresh();
-            muzikcalar.controls.stop();
-            MessageBox.Show("Liste Değişti. Müziği yeniden başlatın.");
+            try
+            {
+                int i = Music.SelectedIndex;
+                Music.Items.RemoveAt(i);
+                OynatmaListesi.RemoveAt(i);
+                Music.Refresh();
+                muzikcalar.controls.stop();
+
+                if (Music.Items.Count == 0)
+                {
+                    Play.Enabled = false;
+                    Stop.Enabled = false;
+                    DeleteMusic.Enabled = false;
+                    NewPlay.Enabled = false;
+                }
+
+            }
+            catch{}
         }
 
         private void NewPlay_Click(object sender, EventArgs e)
@@ -133,8 +145,7 @@ namespace Music
             catch
             {
                 MessageBox.Show("Çalınacak Müzik Bulunamadı.");
-            }
-            
+            } 
         }
     }
 }
