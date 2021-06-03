@@ -18,23 +18,23 @@ namespace Music
             InitializeComponent();
         }
 
-        WMPLib.WindowsMediaPlayer muzikcalar = new WMPLib.WindowsMediaPlayer();
+        WMPLib.WindowsMediaPlayer musicplayer = new WMPLib.WindowsMediaPlayer();
         OpenFileDialog file = new OpenFileDialog();
-        List<string> OynatmaListesi = new List<string>();
+        List<string> PlayList = new List<string>();
 
         private void AddMusic_Click(object sender, EventArgs e)
         {
             file.Filter = "Media File(*.mpg,*.dat,*.avi,*.wmv,*.wav,*.mp3)|*.wav;*.mp3;*.mpg;*.dat;*.avi;*.wmv";
             file.Multiselect = true;
             file.InitialDirectory = Application.StartupPath;
-            file.Title = "Dosya Seç";
+            file.Title = "Select File";
             
             if (file.ShowDialog(this) == DialogResult.OK)
             {
                 for (int i = 0; i < file.FileNames.Count(); i++)
                 {
                     Music.Items.Add(file.SafeFileNames[i]);
-                    OynatmaListesi.Add(file.FileNames[i]);
+                    PlayList.Add(file.FileNames[i]);
                 }
                     Play.Enabled = true;
                     Stop.Enabled = true;
@@ -46,12 +46,12 @@ namespace Music
         private void DeleteMusic_Click(object sender, EventArgs e)
         {
             Music.Items.Clear();
-            OynatmaListesi.Clear();
+            PlayList.Clear();
             Play.Enabled = false;
             Stop.Enabled = false;
             DeleteMusic.Enabled = false;
             NewPlay.Enabled = false;
-            muzikcalar.controls.stop();
+            musicplayer.controls.stop();
         }
 
         void Music_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -61,14 +61,14 @@ namespace Music
             {
                 try
                 {
-                    muzikcalar.URL = OynatmaListesi[Music.SelectedIndex].ToString();
-                    muzikcalar.controls.play();
+                    musicplayer.URL = PlayList[Music.SelectedIndex].ToString();
+                    musicplayer.controls.play();
                     this.Text = Music.GetItemText(Music.SelectedItem);
                 }
                 
                 catch (FileNotFoundException)
                 {
-                    MessageBox.Show("Müzik bu konumda bulunamadı.");
+                    MessageBox.Show("Music not found in this location.");
                 }          
             }
         }
@@ -78,30 +78,30 @@ namespace Music
         {
             try
             {
-                if (!string.IsNullOrEmpty(muzikcalar.URL))
+                if (!string.IsNullOrEmpty(musicplayer.URL))
                 {
-                    if (muzikcalar.playState == WMPLib.WMPPlayState.wmppsPaused)
+                    if (musicplayer.playState == WMPLib.WMPPlayState.wmppsPaused)
                     {
-                        muzikcalar.controls.play();
+                        musicplayer.controls.play();
                         this.Text = Music.GetItemText(Music.SelectedItem);
                     }
                     
                     else
                     {
-                        muzikcalar.controls.pause();
+                        musicplayer.controls.pause();
                     }
                 }
             }
 
             catch
             {
-                MessageBox.Show("Çalınacak Müzik Bulunamadı.");
+                MessageBox.Show("No music to play.");
             }
         }
 
         private void Stop_Click(object sender, EventArgs e)
         {
-            muzikcalar.controls.stop();
+            musicplayer.controls.stop();
         }
 
         private void Music_MouseDown(object sender, MouseEventArgs e)
@@ -117,9 +117,9 @@ namespace Music
             {
                 int i = Music.SelectedIndex;
                 Music.Items.RemoveAt(i);
-                OynatmaListesi.RemoveAt(i);
+                PlayList.RemoveAt(i);
                 Music.Refresh();
-                muzikcalar.controls.stop();
+                musicplayer.controls.stop();
 
                 if (Music.Items.Count == 0)
                 {
@@ -137,14 +137,14 @@ namespace Music
         {
             try
             {
-                muzikcalar.URL = OynatmaListesi[Music.SelectedIndex].ToString();
-                muzikcalar.controls.play();
+                musicplayer.URL = PlayList[Music.SelectedIndex].ToString();
+                musicplayer.controls.play();
                 this.Text = Music.GetItemText(Music.SelectedItem);
             }
 
             catch
             {
-                MessageBox.Show("Çalınacak Müzik Bulunamadı.");
+                MessageBox.Show("No music to play.");
             } 
         }
     }
